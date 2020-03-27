@@ -15,8 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from UserDefault import views
+from knox import views as knox_views
+
 
 urlpatterns = [
     path('', include('leads.urls')),
     path('', include('accounts.urls')),
+    path('', include('UserDefault.urls')),
+    path('test1/<int:user>', views.UserRetrieve.as_view()),
 ]
